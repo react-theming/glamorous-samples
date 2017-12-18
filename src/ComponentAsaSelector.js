@@ -1,5 +1,3 @@
-import React from 'react';
-import { render } from 'react-dom';
 import glamorous from 'glamorous';
 
 const footerHeaderClassName = 'app-footer-header';
