@@ -1,10 +1,10 @@
-import React from 'react'
-import {render} from 'react-dom'
-import glamorous from 'glamorous'
+import React from 'react';
+import { render } from 'react-dom';
+import glamorous from 'glamorous';
 
-const footerHeaderClassName = `app-footer-header`
-export const FooterHeader = glamorous.div(footerHeaderClassName, {color: 'red'})
-FooterHeader.className = footerHeaderClassName
+const footerHeaderClassName = 'app-footer-header';
+export const FooterHeader = glamorous.div(footerHeaderClassName, { color: 'red' });
+FooterHeader.className = footerHeaderClassName;
 
 export const Footer = glamorous.div({
   height: '2rem',
@@ -18,5 +18,4 @@ export const Footer = glamorous.div({
       color: 'white',
     },
   },
-})
-
+});

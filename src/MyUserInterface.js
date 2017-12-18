@@ -1,5 +1,4 @@
 import React from 'react';
-import { render } from 'react-dom';
 import glamorous from 'glamorous';
 
 // Let's create some glamorous components!
@@ -30,7 +29,7 @@ const Name = glamorous.div(
   {
     fontWeight: 'bold',
   },
-  props => ({ fontSize: props.size }),
+  props => ({ fontSize: props.size })
 );
 
 // Next let's get `span` and `A` from GlamorousComponents
@@ -58,6 +57,4 @@ export function MyUserInterface({ name, tagline, imageUrl, homepage, size }) {
       </Span>
     </ComponentDiv>
   );
-};
-
-
+}

@@ -1,7 +1,7 @@
-import React from 'react'
-import glamorous, { Div } from 'glamorous'
+import React from 'react';
+import glamorous, { Div } from 'glamorous';
 
-function ExampleBox({children}) {
+function ExampleBox({ children }) {
   return (
     <Div
       padding="4vw"
@@ -15,7 +15,7 @@ function ExampleBox({children}) {
     >
       <Div display="flex" flexDirection="column">
         <Div alignSelf="center" color="#333" marginBottom={4}>
-          {`glamorous 💄`}
+          {'glamorous 💄'}
         </Div>
         <Div
           backgroundColor="white"
@@ -38,10 +38,10 @@ function ExampleBox({children}) {
         </Div>
       </Div>
     </Div>
-  )
+  );
 }
 
-export default ExampleBox
+export default ExampleBox;
 
 export const Button = glamorous.button({
   cursor: 'pointer',
@@ -58,29 +58,32 @@ export const Button = glamorous.button({
     backgroundColor: 'red',
     color: 'white',
   },
-})
+});
 
 // We're replacing the <button> tag with an <a> tag, but reuse all the same styles
 export const Link = glamorous(Button.withComponent('a'))({
   textDecoration: 'none',
-})
+});
 
-const MyInput = glamorous.input()
+const MyInput = glamorous.input();
 
 export class MyComponent extends React.Component {
   alertValue = e => {
-    e.preventDefault()
-    console.log(this.input.value)
-  }
+    e.preventDefault();
+    console.log(this.input.value);
+  };
   render() {
     return (
       <form onSubmit={this.alertValue}>
-        <MyInput innerRef={r => (this.input = r)} />
+        <MyInput
+          innerRef={r => {
+            this.input = r;
+          }}
+        />
         <glamorous.Button type="submit" marginTop={12} display="block">
           Submit
         </glamorous.Button>
       </form>
-    )
+    );
   }
 }
-

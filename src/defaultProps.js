@@ -1,11 +1,10 @@
-import React, {Component} from 'react'
-import {render} from 'react-dom'
-import glamorous, {Label, Div} from 'glamorous'
-import ExampleBox from './example-box'
-import NodeGetter from './node-getter'
+import React from 'react';
+import glamorous, { Label, Div } from 'glamorous';
+import ExampleBox from './example-box';
+import NodeGetter from './node-getter';
 
 const AppInput = glamorous('input', {
-  withProps: ({username}) =>
+  withProps: ({ username }) =>
     username
       ? {
           type: 'text',
@@ -20,17 +19,14 @@ const AppInput = glamorous('input', {
     maxWidth: 250,
     fontSize: '2.8vw',
   },
-  ({node}) => {
-    return [
-      !node || !node.validity.valid
-        ? {borderColor: 'red'}
-        : {borderColor: 'green'},
-      node && node.value ? {outline: 0} : null,
-    ]
-  },
-)
+  ({ node }) => [
+    !node || !node.validity.valid ? { borderColor: 'red' } : { borderColor: 'green' },
+    node && node.value ? { outline: 0 } : null,
+  ]
+);
 
-export const AppInputWithProps = <ExampleBox>
+export const AppInputWithProps = (
+  <ExampleBox>
     <Div
       display="flex"
       flexWrap="wrap"
@@ -43,15 +39,11 @@ export const AppInputWithProps = <ExampleBox>
       </Label>
       <Div flex="1">
         <NodeGetter>
-        {({refCallback, node, rerender}) =>
-            <AppInput
-            username
-            id="input"
-            node={node}
-            innerRef={refCallback}
-            onChange={rerender}
-            />}
+          {({ refCallback, node, rerender }) => (
+            <AppInput username id="input" node={node} innerRef={refCallback} onChange={rerender} />
+          )}
         </NodeGetter>
       </Div>
     </Div>
   </ExampleBox>
+);

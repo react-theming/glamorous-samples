@@ -26,9 +26,9 @@ setAddon({
 
           ---
 
-          [Open in CodeSandbox](${customData.link})
+          🔗 [Open in CodeSandbox](${customData.link})
 
-          *File location*: ${customData.file}
+          📂 ${customData.file}
         `,
       })(() =>
         customData.story
