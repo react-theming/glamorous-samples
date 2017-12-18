@@ -1,35 +1,42 @@
 import React from 'react';
 import glamorous from 'glamorous';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 
-import { MyUserInterface } from '../MyUserInterface.js';
-import { Footer, FooterHeader } from '../ComponentAsaSelector.js';
-import ExampleBox, { Button, Link, MyComponent } from '../example-box.js';
-import { AppInputWithProps } from '../defaultProps.js';
-import { GlamImage, imageSrc } from '../propBasedStyle.js';
+import { MyUserInterface } from '../MyUserInterface';
+import { Footer, FooterHeader } from '../ComponentAsaSelector';
+import { Button, Link, MyComponent } from '../example-box';
+import { AppInputWithProps } from '../defaultProps';
+import { GlamImage, imageSrc } from '../propBasedStyle';
 
 const StyledTitle = glamorous.div({
   fontSize: 20,
   fontFamily: 'Sans',
-  backgroundColor: 'gray',
+  backgroundColor: '#6AB8AB',
   textAlign: 'center',
+  padding: 16,
 });
 
 storiesOf('Glamorous Components', module)
   .addExample({
     title: 'Basic',
     header: 'Glamorous. Simple example',
-    description: 'If you just want a div that\'s styled using glamor, you can do that.',
+    description: "If you just want a div that's styled using glamor, you can do that.",
     link: 'https://codesandbox.io/s/mDLZ1oKn',
     file: 'src/stories/index.js',
-    story: <glamorous.Div marginTop={20}>
-      <StyledTitle>Hello, glamorous world!</StyledTitle>
-    </glamorous.Div>,
+    showBox: false,
+    story: (
+      <glamorous.Div marginTop={20}>
+        <StyledTitle>Hello, glamorous world!</StyledTitle>
+      </glamorous.Div>
+    ),
   })
   .addExample({
-    title: 'MyUserInterface',
+    title: 'Glamorous Component',
     header: 'Glamorous Component',
+    description: "If you just want a div that's styled using glamor, you can do that.",
+    showBox: false,
+    link: 'https://codesandbox.io/s/wmRo8OKDm',
+    file: 'src/MyUserInterface.js',
     story: (
       <MyUserInterface
         name="Glamorous"
@@ -59,12 +66,14 @@ storiesOf('Glamorous Components', module)
       'When you create a glamorous component factory, you determine what component will be rendered by components created by that factory. However, there could be cases where you want to change that component rendered. In this lesson we’ll see how to do that with the **withComponent** helper.',
     link: 'https://codesandbox.io/s/8zv23krr7j',
     file: 'src/example-box.js',
-    story: (
-      <ExampleBox>
-        <Button onClick={() => console.log('clicked')}>Normal Button</Button>
-        <Link href="https://example.com">Normal Link</Link>
-      </ExampleBox>
-    ),
+    story: [
+      <Button key={1} onClick={() => console.log('Normal Button was clicked')}>
+        Normal Button
+      </Button>,
+      <Link key={2} href="https://example.com">
+        Normal Link
+      </Link>,
+    ],
   })
   .addExample({
     title: 'Ref to the element',
@@ -73,11 +82,7 @@ storiesOf('Glamorous Components', module)
       'Sometimes you need to get a reference to the react element that’s rendered. In this lesson we’ll learn about how to get a reference to the rendered element.',
     link: 'https://codesandbox.io/s/711k877z66',
     file: 'src/example-box.js',
-    story: (
-      <ExampleBox>
-        <MyComponent />
-      </ExampleBox>
-    ),
+    story: <MyComponent />,
   })
   .addExample({
     title: 'Attach default props',
@@ -95,12 +100,10 @@ storiesOf('Glamorous Components', module)
       'Often you need dynamic styles. We can use props and dynamic style functions to add this functionality in a straightforward way to our glamorous components.',
     link: 'https://codesandbox.io/s/xo9z62029z',
     file: 'src/propBasedStyle.js',
-    story: (
-      <ExampleBox>
-        <GlamImage src={imageSrc} />
-        <GlamImage rounded src={imageSrc} />
-        <GlamImage rounded={20} src={imageSrc} />
-        <GlamImage rounded faded src={imageSrc} />
-      </ExampleBox>
-    ),
+    story: [
+      <GlamImage key={1} src={imageSrc} />,
+      <GlamImage key={2} rounded src={imageSrc} />,
+      <GlamImage key={3} rounded={20} src={imageSrc} />,
+      <GlamImage key={4} rounded faded src={imageSrc} />,
+    ],
   });

@@ -1,6 +1,5 @@
 import React from 'react';
 import glamorous, { Label, Div } from 'glamorous';
-import ExampleBox from './example-box';
 import NodeGetter from './node-getter';
 
 const AppInput = glamorous('input', {
@@ -26,24 +25,22 @@ const AppInput = glamorous('input', {
 );
 
 export const AppInputWithProps = (
-  <ExampleBox>
-    <Div
-      display="flex"
-      flexWrap="wrap"
-      justifyContent="center"
-      textAlign="center"
-      flexDirection="column"
-    >
-      <Label htmlFor="input" marginRight={10} cursor="pointer">
-        Username
-      </Label>
-      <Div flex="1">
-        <NodeGetter>
-          {({ refCallback, node, rerender }) => (
-            <AppInput username id="input" node={node} innerRef={refCallback} onChange={rerender} />
-          )}
-        </NodeGetter>
-      </Div>
+  <Div
+    display="flex"
+    flexWrap="wrap"
+    justifyContent="center"
+    textAlign="center"
+    flexDirection="column"
+  >
+    <Label htmlFor="input" marginRight={10} cursor="pointer" fontSize={24}>
+      Username
+    </Label>
+    <Div flex="1">
+      <NodeGetter>
+        {({ refCallback, node, rerender }) => (
+          <AppInput username id="input" node={node} innerRef={refCallback} onChange={rerender} />
+        )}
+      </NodeGetter>
     </Div>
-  </ExampleBox>
+  </Div>
 );

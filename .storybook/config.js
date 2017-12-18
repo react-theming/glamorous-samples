@@ -1,7 +1,9 @@
+import React from 'react';
 import { configure, addDecorator, setAddon } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import '@storybook/addon-console';
 
+import ExampleBox from '../src/example-box.js';
 
 setAddon({
   addExample(data) {
@@ -11,6 +13,7 @@ setAddon({
       description: 'Read documentation at https://glamorous.rocks/',
       file: './src',
       link: 'https://codesandbox.io',
+      showBox: true,
       ...data,
     };
     this.add(
@@ -30,7 +33,10 @@ setAddon({
 
           📂 ${customData.file}
         `,
-      })(() =>
+      })(() => customData.showBox ?
+        <ExampleBox>
+          {customData.story}
+        </ExampleBox> :
         customData.story
       )
     )
