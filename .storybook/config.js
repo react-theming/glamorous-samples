@@ -1,9 +1,17 @@
 import React from 'react';
 import { configure, addDecorator, setAddon } from '@storybook/react';
+import { setOptions } from '@storybook/addon-options';
+
 import { withInfo } from '@storybook/addon-info';
 import '@storybook/addon-console';
 
 import ExampleBox from '../src/example-box.js';
+
+// enable after channel issue be fixed https://github.com/storybooks/storybook/issues/1981
+// setOptions({
+//   name: 'glamorous samples',
+//   url: 'https://github.com/react-theming/glamorous-samples',
+// });
 
 setAddon({
   addExample(data) {
@@ -45,6 +53,7 @@ setAddon({
 
 function loadStories() {
   require('../src/stories');
+  
 }
 
 configure(loadStories, module);
