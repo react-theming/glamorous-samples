@@ -29,7 +29,7 @@ function ExampleBox({ children }) {
           alignItems="center"
           height="auto"
           width="50vw"
-          maxHeight="600px"
+          // maxHeight="600px"
           maxWidth="600px"
           borderColor="#CC3A4B"
           padding={20}
