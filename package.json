@@ -28,9 +28,11 @@
     "react-dom": "^16.2.0"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.2.18",
     "@storybook/addon-console": "^1.0.0",
     "@storybook/addon-info": "^3.2.17",
     "@storybook/addon-options": "^3.2.18",
+    "@storybook/addons": "^3.2.18",
     "@storybook/react": "^3.2.17",
     "@storybook/storybook-deployer": "^2.2.0"
   }
